@@ -1,34 +1,28 @@
 
-function REST(url, method, data, headers, callback) {
-
-	data['headers'] = headers;
+function REST(url, method, headers, data, callback) {
 
 	console.log("url " + url);
 	progressBarShow();
 
 	$.ajax({
+		type: method,
 		url: url,
-		method: method,
 		data: data,
-		crossDomain: true,
-		dataType: "json"
+		dataType: "json",
+		headers: headers
 	})
 
 		.done(function (msg) {
 			progressBarHide();
-
+			console.log("data", msg);
 			callback(msg);
 
 		})
 
 		.fail(function (jqXHR, textStatus) {
-			console.log("FAIL::::::::::::::::::");
 			console.log(jqXHR);
-			progressBarHide();
-			showRestError(textStatus);
+			showError("Erro na requisição!");
 		});
-
-
 }
 
 function progressBarShow() {
@@ -39,46 +33,18 @@ function progressBarHide() {
 	waitingDialog.hide();
 }
 
-function showRestError(textStatus) {
- 
+function showError(textStatus) {
 
+	waitingDialog.show(textStatus, { dialogSize: "sm", progressType: "warning" })
+
+	setTimeout(() => {
+
+		waitingDialog.hide()
+
+	}, 4000)
 }
 
 
-
-
-function showAlertConfirm(titulo, message, clickok, clickfalse) {
-
-	if (typeof $("#showAlertConfirm") != "undefined") {
-
-		$("#showAlertConfirm").remove();
-	}
-
-
-	progressBarShow();
-
-	var html = '<p> ' + message + ' </p><br>';
-
-	html += '<button id="btn_ok" type="button" class="button button-block button-positive"> Ok </button>';
-	html += '<button id="btn_cancel" type="button" class="button button-block button-default"> Cancelar </button>';
-
-
-
-	$('<div id="showAlertConfirm" title="' + titulo + '" />').html(html).dialog({ modal: true, close: function () { onDialogHide(); clickfalse(); } });
-	onDialogShow();
-
-	$("#btn_ok").click(function () {
-		onDialogHide();
-		clickok();
-	});
-
-	$("#btn_cancel").click(function () {
-		onDialogHide();
-		clickfalse();
-	});
-
-	progressBarHide();
-}
 
 
 function showAlert(message, clickok) {

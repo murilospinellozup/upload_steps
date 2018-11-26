@@ -1,6 +1,9 @@
 
 
-function setPage(name) {
+let setPage = (name) => $('#container').load(`pages/${name}.html`)
 
-	$('#container').load(`pages/${name}`);
-}
+
+// automatic steps
+$(document).ready(function () {
+	setPage("sign");
+});

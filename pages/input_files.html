@@ -1,4 +1,11 @@
+<!-- jQuery File Upload Dependencies -->
+<script src="assets/jquery.knob.js"></script>
+<script src="assets/jquery.ui.widget.js"></script>
+<script src="assets/jquery.iframe-transport.js"></script>
+<script src="assets/jquery.fileupload.js"></script>
+
 <script src="pages/input_files.js"></script>
+
 <form class="form-signin">
 
 	<h1 class="h3 mb-3 font-weight-normal">Upload your files here</h1>
@@ -10,20 +17,20 @@
 
 	<div class="input-group mb-3">
 		<div class="custom-file">
-			<input type="file" class="custom-file-input" id="customFile">
-			<label class="custom-file-label" for="customFile">Choose TXT file</label>
+			<input type="file" class="custom-file-input" file-type="XLSX" id="file1">
+			<label class="custom-file-label" for="customFile">Choose a XLSX(WIZEO) file</label>
 		</div>
 	</div>
 	<div class="input-group mb-3">
 		<div class="custom-file">
-			<input type="file" class="custom-file-input" id="customFile">
-			<label class="custom-file-label" for="customFile">Choose XLS file</label>
+			<input type="file" class="custom-file-input" file-type="TXT" id="file2">
+			<label class="custom-file-label" for="customFile">Choose a TXT(BENECIOFACIL) file</label>
 		</div>
 	</div>
 	<div class="input-group mb-3">
 		<div class="custom-file">
-			<input type="file" class="custom-file-input" id="customFile">
-			<label class="custom-file-label" for="customFile">Choose DOC file</label>
+			<input type="file" class="custom-file-input" file-type="JSON" id="file3">
+			<label class="custom-file-label" for="customFile">Choose a JSON(PEDEFACIL) file</label>
 		</div>
 	</div>
 
