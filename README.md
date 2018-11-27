@@ -6,7 +6,6 @@ Module with upload and authentication
 initFirstLogin (user, password, calback)
 - way of first step with login error or sucess
 
-# Methods
 initFirstLogin (user, password, calback)
 - way of first step with login error or sucess
 
