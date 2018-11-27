@@ -24,11 +24,11 @@ let initFirstLogin = (username, password, sucess) => {
 $("#first-login-btn").click(function () {
 
 	// Step1 - login
-	// initFirstLogin($("#inputEmail").val(), $("#inputPassword").val(), () => {
+	initFirstLogin($("#inputEmail").val(), $("#inputPassword").val(), () => {
 
 		// Step2 - to input files
 		setPage("input_files");
-	// });
+	});
 
 
 })
