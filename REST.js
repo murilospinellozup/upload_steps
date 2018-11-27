@@ -45,7 +45,15 @@ function showError(textStatus) {
 }
 
 
+function showSucess(textStatus){
+	waitingDialog.show(textStatus, { dialogSize: "sm", progressType: "success" })
 
+	setTimeout(() => {
+
+		waitingDialog.hide()
+
+	}, 4000)
+}
 
 function showAlert(message, clickok) {
 
